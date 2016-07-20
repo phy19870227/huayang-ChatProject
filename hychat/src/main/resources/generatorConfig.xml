@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <properties resource="generatorConfig.properties"/>
+    <classPathEntry location="${jdbc.jar}"/>
+    <context id="webmgrContext">
+
+        <!-- generate entity时，生成hashcode和equals方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <!-- generate entity时，生成serialVersionUID -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- genenat entity时,生成toString -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true"/> <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}" userId="${jdbc.username}"
+                        password="${jdbc.password}"/>
+
+        <javaModelGenerator targetPackage="huayang.hychat.model.po"
+                            targetProject="${source.path}">
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="huayang.hychat.dao.base"
+                         targetProject="${source.path}"/>
+
+        <javaClientGenerator targetPackage="huayang.hychat.dao.base"
+                             targetProject="${source.path}" type="XMLMAPPER"/>
+
+        <table schema="hychat" tableName="chat_user"></table>
+        <table schema="hychat" tableName="chat_friend"></table>
+
+    </context>
+</generatorConfiguration>
