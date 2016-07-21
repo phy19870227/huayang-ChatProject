@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="3000"/>
+        <property name="logSlowSql" value="true"/>
+        <property name="mergeSql" value="true"/>
+    </bean>
+    <bean id="log-filter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
+        <property name="dataSourceLogEnabled" value="false"/>
+        <property name="connectionLogEnabled" value="false"/>
+        <property name="connectionLogErrorEnabled" value="true"/>
+        <property name="statementLogEnabled" value="false"/>
+        <property name="statementLogErrorEnabled" value="true"/>
+        <property name="resultSetLogEnabled" value="false"/>
+        <property name="resultSetLogErrorEnabled" value="true"/>
+        <property name="connectionConnectBeforeLogEnabled" value="false"/>
+        <property name="connectionConnectAfterLogEnabled" value="false"/>
+        <property name="connectionCommitAfterLogEnabled" value="false"/>
+        <property name="connectionRollbackAfterLogEnabled" value="false"/>
+        <property name="connectionCloseAfterLogEnabled" value="false"/>
+        <property name="statementCreateAfterLogEnabled" value="false"/>
+        <property name="statementPrepareAfterLogEnabled" value="false"/>
+        <property name="statementPrepareCallAfterLogEnabled" value="false"/>
+        <property name="statementExecuteAfterLogEnabled" value="false"/>
+        <property name="statementExecuteQueryAfterLogEnabled" value="false"/>
+        <property name="statementExecuteUpdateAfterLogEnabled" value="false"/>
+        <property name="statementExecuteBatchAfterLogEnabled" value="false"/>
+        <property name="statementCloseAfterLogEnabled" value="false"/>
+        <property name="statementParameterSetLogEnabled" value="false"/>
+        <property name="statementParameterClearLogEnable" value="false"/>
+        <property name="resultSetNextAfterLogEnabled" value="false"/>
+        <property name="resultSetOpenAfterLogEnabled" value="false"/>
+        <property name="resultSetCloseAfterLogEnabled" value="false"/>
+        <!-- <property name="statementExecutableSqlLogEnable" value="false" /> -->
+    </bean>
+    <bean id="wall-filter" class="com.alibaba.druid.wall.WallFilter">
+        <property name="dbType" value="mysql"/>
+    </bean>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxActive" value="50"/>
+        <property name="initialSize" value="10"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="10"/>
+        <property name="timeBetweenEvictionRunsMillis" value="3000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <!--<property name="validationQuery" value="select sysdate from dual"/>-->
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+        <property name="timeBetweenLogStatsMillis" value="300000"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+                <ref bean="log-filter"/>
+                <ref bean="wall-filter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
+
+    <!-- mybatis文件配置，扫描所有mapper文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    </bean>
+
+    <!-- spring与mybatis整合配置，扫描所有dao -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="huayang.*.dao.*"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
 
 </beans>

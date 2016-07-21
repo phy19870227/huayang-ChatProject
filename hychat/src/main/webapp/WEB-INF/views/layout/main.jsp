@@ -16,14 +16,16 @@
 
     <title>hychat聊天</title>
 
-    <link href="${ctxPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctxPath}/assets/bootstrap.min.css" rel="stylesheet">
+
+    <link href="${ctxPath}/assets/bootstrap-toastr/toastr.min.css">
 
     <link href="${ctxPath}/css/base.css" rel="stylesheet">
     <layout:block name="link"/>
 
     <!--[if lt IE 9]>
-    <script src="${ctxPath}/js/html5shiv.min.js"></script>
-    <script src="${ctxPath}/js/respond.min.js"></script>
+    <script src="${ctxPath}/assets/html5shiv.min.js"></script>
+    <script src="${ctxPath}/assets/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -33,8 +35,11 @@
 </div>
 <jsp:include page="/WEB-INF/views/common/module/footer.jsp"></jsp:include>
 
-<script src="${ctxPath}/js/jquery.min.js"></script>
-<script src="${ctxPath}/js/bootstrap.min.js"></script>
+<script src="${ctxPath}/assets/jquery.min.js"></script>
+<script src="${ctxPath}/assets/bootstrap.min.js"></script>
+
+<script src="${ctxPath}/assets/bootstrap-toastr/toastr.min.js"></script>
+
 <script src="${ctxPath}/js/base.js"></script>
 <layout:block name="script"/>
 </body>
