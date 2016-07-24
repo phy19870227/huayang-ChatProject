@@ -23,12 +23,6 @@ public class RegisterBizImpl implements IRegisterBiz {
     @Autowired
     private ChatUserMapper chatUserMapper;
 
-    @Override
-    public int count(ChatUser chatUser) {
-        ChatUserExample example = _createChatUserExample(chatUser);
-        return chatUserMapper.countByExample(example);
-    }
-
     private ChatUserExample _createChatUserExample(ChatUser chatUser) {
         ChatUserExample example = new ChatUserExample();
         ChatUserExample.Criteria criteria = example.createCriteria();

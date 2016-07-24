@@ -29,29 +29,7 @@ public class AccountController {
 
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
     public String register() {
-        return "account/register";
-    }
-
-    @RequestMapping(value = "/register.htm", method = RequestMethod.POST)
-    public DefaultResp register(HttpServletRequest request) {
-        DefaultResp resp = new DefaultResp();
-        return resp;
-    }
-
-    @RequestMapping(value = "/checkUserCode.htm", method = RequestMethod.GET)
-    @ResponseBody
-    public DefaultResp checkUserCode(String userCode) {
-        DefaultResp resp = new DefaultResp();
-        ChatUser searchChatUser = new ChatUser();
-        searchChatUser.setUserCode(userCode);
-        int count = registerBiz.count(searchChatUser);
-        if (count > 0) {
-            resp.setResultFlag(AppContext.FLAG_N);
-            resp.setResultMsg(SpringUtil.getMessage("userCode.repeat"));
-        } else {
-            resp.setResultFlag(AppContext.FLAG_Y);
-        }
-        return resp;
+        return "register";
     }
 
 }

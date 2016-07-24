@@ -7,6 +7,6 @@ import huayang.hychat.model.po.ChatUser;
  */
 public interface IRegisterBiz {
 
-    int count(ChatUser chatUser);
+
 
 }
