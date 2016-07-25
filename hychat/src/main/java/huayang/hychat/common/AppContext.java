@@ -1,9 +1,11 @@
-package huayang.hychat;
+package huayang.hychat.common;
 
 /**
  * Created by buhuayang on 16/7/21.
  */
 public class AppContext {
+
+    public static final String DEFAULT_ENCODING = "UTF-8";
 
     public static final String FLAG_Y = "Y";
     public static final String FLAG_N = "N";

@@ -20,7 +20,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="${ctxPath}/assets/plugins/ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="${ctxPath}/assets/AdminLTE/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="${ctxPath}/assets/AdminLTE/css/AdminLTE.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="${ctxPath}/assets/plugins/iCheck/square/blue.css">
 
@@ -38,6 +38,7 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
+
         <p class="login-box-msg">登录HyChat</p>
 
         <form action="#" method="post">

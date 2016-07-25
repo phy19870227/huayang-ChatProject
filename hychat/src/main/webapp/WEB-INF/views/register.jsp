@@ -20,7 +20,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="${ctxPath}/assets/plugins/ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="${ctxPath}/assets/AdminLTE/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="${ctxPath}/assets/AdminLTE/css/AdminLTE.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="${ctxPath}/assets/plugins/iCheck/square/blue.css">
 
@@ -40,25 +40,25 @@
     <div class="register-box-body">
         <p class="login-box-msg">注册新账户</p>
 
-        <form action="#" method="post">
+        <form action="${ctxPath}/register.htm" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="用户名" autofocus>
+                <input type="text" name="userCode" class="form-control" placeholder="用户名" autofocus>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="邮箱">
+                <input type="email" name="userEmail" class="form-control" placeholder="邮箱">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="昵称">
+                <input type="text" name="userName" class="form-control" placeholder="昵称">
                 <span class="glyphicon glyphicon-heart-empty form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="密码">
+                <input type="password" name="userPwd" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="确认密码">
+                <input type="password" name="repeatUserPwd" class="form-control" placeholder="确认密码">
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
             </div>
             <div class="row">

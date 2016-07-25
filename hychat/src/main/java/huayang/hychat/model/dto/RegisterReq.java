@@ -6,8 +6,26 @@ package huayang.hychat.model.dto;
 public class RegisterReq {
 
     private String userCode;
+    private String userName;
+    private String userEmail;
     private String userPwd;
     private String repeatUserPwd;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 
     public String getUserCode() {
         return userCode;

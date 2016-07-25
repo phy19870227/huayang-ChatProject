@@ -7,4 +7,6 @@ public class WebKey {
 
     public static final String CHECK_IMG_VAL_KEY = "check.img.val.key";
 
+    public static final String RESPONSE_MESSAGE = "responseMessage";
+
 }

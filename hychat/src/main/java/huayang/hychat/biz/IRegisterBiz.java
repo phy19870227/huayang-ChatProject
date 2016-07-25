@@ -7,6 +7,8 @@ import huayang.hychat.model.po.ChatUser;
  */
 public interface IRegisterBiz {
 
+    void register(ChatUser user);
 
+    ChatUser readUser(String userFlow);
 
 }

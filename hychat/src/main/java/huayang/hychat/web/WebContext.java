@@ -1,5 +1,9 @@
 package huayang.hychat.web;
 
+import huayang.hychat.common.AppContext;
+import huayang.hychat.common.utils.SpringUtil;
+import huayang.hychat.model.dto.DefaultResp;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -14,6 +18,26 @@ import javax.servlet.http.HttpSession;
  */
 public class WebContext {
 
+    public static <T extends DefaultResp> T createResp(Class<T> respClazz, boolean isSuccess, String messageKey) {
+        try {
+            T resp = respClazz.newInstance();
+            if (isSuccess) {
+                resp.setResultFlag(AppContext.FLAG_Y);
+            } else {
+                resp.setResultFlag(AppContext.FLAG_N);
+            }
+            resp.setResultMsg(SpringUtil.getMessage(messageKey));
+            return resp;
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getContextPath() {
+        ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        return attrs.getRequest().getContextPath();
+    }
+
     public static HttpServletRequest getRequest() {
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         return attrs.getRequest();
@@ -26,15 +50,15 @@ public class WebContext {
 
     public static boolean isAjaxRequest() {
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        if (attrs == null){
+        if (attrs == null) {
             return false;
         }
         HttpServletRequest request = attrs.getRequest();
-        if (request == null){
+        if (request == null) {
             return false;
         }
         String requestedWith = request.getHeader("X-Requested-With");
-        return requestedWith != null ? "XMLHttpRequest".equals(requestedWith) : false;
+        return requestedWith != null ? StringUtils.equals("XMLHttpRequest", requestedWith) : false;
     }
 
     public static HttpSession getSession() {

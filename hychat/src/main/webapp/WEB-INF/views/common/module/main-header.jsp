@@ -25,7 +25,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown messages-menu">
+                <%--<li class="dropdown messages-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
@@ -57,11 +57,11 @@
                         </li>
                         <li class="footer"><a href="#">See All Messages</a></li>
                     </ul>
-                </li>
+                </li>--%>
                 <!-- /.messages-menu -->
 
                 <!-- Notifications Menu -->
-                <li class="dropdown notifications-menu">
+                <%--<li class="dropdown notifications-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
@@ -82,9 +82,9 @@
                         </li>
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
-                </li>
+                </li>--%>
                 <!-- Tasks Menu -->
-                <li class="dropdown tasks-menu">
+                <%--<li class="dropdown tasks-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
@@ -118,7 +118,7 @@
                             <a href="#">View all tasks</a>
                         </li>
                     </ul>
-                </li>
+                </li>--%>
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
@@ -165,9 +165,9 @@
                     </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
-                <li>
+                <%--<li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li>--%>
             </ul>
         </div>
     </nav>

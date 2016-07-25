@@ -1,6 +1,6 @@
-package huayang.common;
+package huayang.hychat.common;
 
-import huayang.common.utils.SpringUtil;
+import huayang.hychat.common.utils.SpringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;

@@ -473,6 +473,146 @@ public class ChatUserExample {
             addCriterion("user_name not between", value1, value2, "userName");
             return (Criteria) this;
         }
+
+        public Criteria andUserEmailIsNull() {
+            addCriterion("user_email is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailIsNotNull() {
+            addCriterion("user_email is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailEqualTo(String value) {
+            addCriterion("user_email =", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailNotEqualTo(String value) {
+            addCriterion("user_email <>", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailGreaterThan(String value) {
+            addCriterion("user_email >", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailGreaterThanOrEqualTo(String value) {
+            addCriterion("user_email >=", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailLessThan(String value) {
+            addCriterion("user_email <", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailLessThanOrEqualTo(String value) {
+            addCriterion("user_email <=", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailLike(String value) {
+            addCriterion("user_email like", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailNotLike(String value) {
+            addCriterion("user_email not like", value, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailIn(List<String> values) {
+            addCriterion("user_email in", values, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailNotIn(List<String> values) {
+            addCriterion("user_email not in", values, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailBetween(String value1, String value2) {
+            addCriterion("user_email between", value1, value2, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserEmailNotBetween(String value1, String value2) {
+            addCriterion("user_email not between", value1, value2, "userEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeIsNull() {
+            addCriterion("reg_datetime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeIsNotNull() {
+            addCriterion("reg_datetime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeEqualTo(String value) {
+            addCriterion("reg_datetime =", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeNotEqualTo(String value) {
+            addCriterion("reg_datetime <>", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeGreaterThan(String value) {
+            addCriterion("reg_datetime >", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeGreaterThanOrEqualTo(String value) {
+            addCriterion("reg_datetime >=", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeLessThan(String value) {
+            addCriterion("reg_datetime <", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeLessThanOrEqualTo(String value) {
+            addCriterion("reg_datetime <=", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeLike(String value) {
+            addCriterion("reg_datetime like", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeNotLike(String value) {
+            addCriterion("reg_datetime not like", value, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeIn(List<String> values) {
+            addCriterion("reg_datetime in", values, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeNotIn(List<String> values) {
+            addCriterion("reg_datetime not in", values, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeBetween(String value1, String value2) {
+            addCriterion("reg_datetime between", value1, value2, "regDatetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegDatetimeNotBetween(String value1, String value2) {
+            addCriterion("reg_datetime not between", value1, value2, "regDatetime");
+            return (Criteria) this;
+        }
     }
 
     /**

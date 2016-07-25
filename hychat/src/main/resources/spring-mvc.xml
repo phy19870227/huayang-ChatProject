@@ -48,6 +48,29 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- 总错误处理 -->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- 设置日志输出级别，不定义则默认不输出警告等错误日志信息 -->
+        <property name="warnLogCategory" value="WARN"></property>
+        <!-- 默认错误页面，当找不到上面mappings中指定的异常对应视图时，使用本默认配置 -->
+        <property name="defaultErrorView" value="common/error/500"></property>
+        <!-- 默认HTTP状态码 -->
+        <property name="defaultStatusCode" value="500"></property>
+        <!-- 定义异常处理页面用来获取异常信息的变量名，如果不添加exceptionAttribute属性，则默认为exception -->
+        <property name="exceptionAttribute" value="exception"/>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Throwable">common/error/500</prop>
+            </props>
+        </property>
+        <property name="statusCodes">
+            <props>
+                <prop key="common/error/500">500</prop>
+                <prop key="common/error/404">404</prop>
+            </props>
+        </property>
+    </bean>
+
     <bean id="captchaProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
