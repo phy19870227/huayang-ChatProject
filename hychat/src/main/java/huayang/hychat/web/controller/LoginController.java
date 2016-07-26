@@ -33,6 +33,13 @@ public class LoginController extends GeneralController {
     @Autowired
     private ILoginBiz loginBiz;
 
+    @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+    public String login(String resultCode, Model model) {
+        DefaultResp resp = WebContext.createResp(DefaultResp.class, resultCode);
+        model.addAttribute(WebKey.RESPONSE_MESSAGE, resp);
+        return "login";
+    }
+
     @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
     public String login(LoginReq req, HttpServletRequest request, Model model) {
         ChatUser user = loginBiz.getChatUser(req.getUserCode());
@@ -48,7 +55,7 @@ public class LoginController extends GeneralController {
                 return "redirect:/main.htm";
             }
         }
-        return "redirect:/login-fail.htm?resultCode=login.fail.default";
+        return "redirect:/login-fail.htm?resultCode=fail.login.account.wrong";
     }
 
     @RequestMapping(value = "/login-fail.htm", method = RequestMethod.GET)

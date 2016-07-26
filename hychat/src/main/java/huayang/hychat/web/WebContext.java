@@ -23,6 +23,14 @@ public class WebContext {
 
     public static Map<String, SessionData> sessionDataMap = new HashMap();
 
+    public static <T extends DefaultResp> T createResp(Class<T> respClazz, String messageKey) {
+        boolean flag = true;
+        if (StringUtils.startsWith(messageKey, AppContext.MSG_TYPE_PREFIX_FAIL)) {
+            flag = false;
+        }
+        return createResp(respClazz, flag, messageKey);
+    }
+
     public static <T extends DefaultResp> T createResp(Class<T> respClazz, boolean isSuccess, String messageKey) {
         try {
             T resp = respClazz.newInstance();

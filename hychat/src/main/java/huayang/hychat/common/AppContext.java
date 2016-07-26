@@ -10,4 +10,7 @@ public class AppContext {
     public static final String FLAG_Y = "Y";
     public static final String FLAG_N = "N";
 
+    public static final String MSG_TYPE_PREFIX_SUCCESS = "success.";
+    public static final String MSG_TYPE_PREFIX_FAIL = "fail.";
+
 }

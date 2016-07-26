@@ -50,9 +50,7 @@ public class AccountController extends GeneralController {
     @RequestMapping(value = "/register-success.htm", method = RequestMethod.GET)
     public String registerSuccess(String userFlow, Model model) {
         ChatUser user = registerBiz.readUser(userFlow);
-        DefaultResp resp = WebContext.createResp(DefaultResp.class, true, "register.success");
         model.addAttribute("user", user);
-        model.addAttribute(WebKey.RESPONSE_MESSAGE, resp);
         return "register-success";
     }
 
