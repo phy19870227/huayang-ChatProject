@@ -71,6 +71,20 @@
         </property>
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**.htm"/>
+            <mvc:exclude-mapping path="/test*.htm"/>
+            <mvc:exclude-mapping path="/check.jpg"/>
+            <mvc:exclude-mapping path="/register.htm"/>
+            <mvc:exclude-mapping path="/login.htm"/>
+            <mvc:exclude-mapping path="/timeout.htm"/>
+            <mvc:exclude-mapping path="/login-fail.htm"/>
+            <mvc:exclude-mapping path="/register-success.htm"/>
+            <bean class="huayang.hychat.web.interceptor.TimeoutInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <bean id="captchaProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>

@@ -2,6 +2,7 @@ package huayang.hychat.biz.impl;
 
 import huayang.hychat.biz.IRegisterBiz;
 import huayang.hychat.common.utils.DateUtil;
+import huayang.hychat.common.utils.PasswordUtil;
 import huayang.hychat.common.utils.PkUtil;
 import huayang.hychat.dao.base.ChatUserMapper;
 import huayang.hychat.model.po.ChatUser;
@@ -29,6 +30,7 @@ public class RegisterBizImpl implements IRegisterBiz {
     public void register(ChatUser user) {
         user.setUserFlow(PkUtil.getUUID());
         user.setRegDatetime(DateUtil.getCurrDatetime());
+        user.setUserPwd(PasswordUtil.encryptPassword(user.getUserFlow(), user.getUserPwd()));
         chatUserMapper.insertSelective(user);
     }
 
@@ -37,16 +39,4 @@ public class RegisterBizImpl implements IRegisterBiz {
         return chatUserMapper.selectByPrimaryKey(userFlow);
     }
 
-    private ChatUserExample _createChatUserExample(ChatUser chatUser) {
-        ChatUserExample example = new ChatUserExample();
-        ChatUserExample.Criteria criteria = example.createCriteria();
-        if (StringUtils.isNotBlank(chatUser.getUserCode())) {
-            criteria.andUserCodeEqualTo(chatUser.getUserCode());
-        }
-        if (StringUtils.isNotBlank(chatUser.getUserName())) {
-            criteria.andUserNameLike("%" + chatUser.getUserName() + "%");
-        }
-        example.setOrderByClause("user_name");
-        return example;
-    }
 }

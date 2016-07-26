@@ -2,6 +2,7 @@ package huayang.hychat.web;
 
 import huayang.hychat.common.AppContext;
 import huayang.hychat.common.utils.SpringUtil;
+import huayang.hychat.model.bo.SessionData;
 import huayang.hychat.model.dto.DefaultResp;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -12,11 +13,15 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by buhuayang on 16/7/21.
  */
 public class WebContext {
+
+    public static Map<String, SessionData> sessionDataMap = new HashMap();
 
     public static <T extends DefaultResp> T createResp(Class<T> respClazz, boolean isSuccess, String messageKey) {
         try {

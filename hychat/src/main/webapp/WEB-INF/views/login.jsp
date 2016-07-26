@@ -41,13 +41,13 @@
 
         <p class="login-box-msg">登录HyChat</p>
 
-        <form action="#" method="post">
+        <form action="${ctxPath}/login.htm" method="post">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="用户名/邮箱" autofocus>
+                <input type="text" name="userCode" class="form-control" placeholder="用户名" autofocus>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="密码">
+                <input type="password" name="userPwd" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
