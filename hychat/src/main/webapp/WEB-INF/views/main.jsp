@@ -111,5 +111,7 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+<script src="${ctxPath}/js/Util.js"></script>
+<script src="${ctxPath}/js/HyChat.js"></script>
 </body>
 </html>

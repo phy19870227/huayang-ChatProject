@@ -1,6 +1,7 @@
 package huayang.hychat.web.controller;
 
 import com.google.code.kaptcha.Producer;
+import huayang.hychat.common.GeneralController;
 import huayang.hychat.web.WebContext;
 import huayang.hychat.web.WebKey;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -23,7 +24,7 @@ import java.io.IOException;
  * Created by buhuayang on 16/7/21.
  */
 @Controller
-public class CommonController {
+public class CommonController extends GeneralController {
 
     private static final Logger logger = LoggerFactory.getLogger(CommonController.class);
 

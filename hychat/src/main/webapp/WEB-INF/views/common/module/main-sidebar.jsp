@@ -18,7 +18,7 @@
             <div class="pull-left info">
                 <p>${sessionScope[WebKey.CURR_SESSION_DATA].chatUser.userName}</p>
                 <!-- Status -->
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <%--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>--%>
             </div>
         </div>
 
@@ -36,25 +36,29 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active">
-                <a href="#"><i class="fa fa-link"></i> <span>Link</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
-                </ul>
-            </li>
+            <c:if test="${not empty applicationScope[WebKey.MAIN_SIDEBAR_KEY]}">
+                <c:set var="menusets" value="${applicationScope[WebKey.MAIN_SIDEBAR_KEY]}"/>
+                <c:forEach var="menuset" items="${menusets}" varStatus="status">
+                    <c:if test="${menuset.type eq applicationScope['menusetTypeEnumSplit'].code}">
+                        <li class="header">${menuset.name}</li>
+                    </c:if>
+                    <c:if test="${menuset.type eq applicationScope['menusetTypeEnumTree'].code}">
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-link"></i>
+                                <span>${menuset.name}</span>
+                                <span class="pull-right-container">
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <c:forEach var="menu" items="${menuset.menus}" varStatus="status">
+                                    <li><a href="javascript:HyChat.loadContent('${ctxPath}${menu.url}');">${menu.name}</a></li>
+                                </c:forEach>
+                            </ul>
+                        </li>
+                    </c:if>
+                </c:forEach>
+            </c:if>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

@@ -9,6 +9,8 @@ public class WebKey {
 
     public static final String CHECK_IMG_VAL_KEY = "check.img.val.key";
 
-    public static final String RESPONSE_MESSAGE = "responseMessage";
+    public static final String RESPONSE_MESSAGE = "response.message";
+
+    public static final String MAIN_SIDEBAR_KEY = "main.sidebar.key";
 
 }

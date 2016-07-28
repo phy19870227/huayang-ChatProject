@@ -1,5 +1,6 @@
 package huayang.hychat.web.controller;
 
+import huayang.hychat.common.GeneralController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by buhuayang on 16/7/26.
  */
 @Controller
-public class ErrorController {
+public class ErrorController extends GeneralController {
 
     private static Logger logger = LoggerFactory.getLogger(ErrorController.class);
 
