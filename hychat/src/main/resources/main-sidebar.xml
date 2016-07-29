@@ -2,14 +2,14 @@
 <root-menu>
     <menuset id="wdyy" name="我的应用" type="Split"/>
     <menuset id="gt" name="沟通" type="Tree">
-        <menu id="wdhy" name="我的好友" url=""/>
+        <menu id="wdhy" name="我的好友" url="/comingSoon.htm"/>
         <menu id="lts" name="聊天室" url="/chat/chat-room.htm"/>
     </menuset>
     <menuset id="xl" name="效率" type="Tree">
-        <menu id="wdrl" name="我的日历" url=""/>
-        <menu id="wdyj" name="我的邮件" url=""/>
+        <menu id="wdrl" name="我的日历" url="/comingSoon.htm"/>
+        <menu id="wdyj" name="我的邮件" url="/comingSoon.htm"/>
     </menuset>
     <menuset id="grkj" name="个人空间" type="Tree">
-        <menu id="wdzh" name="我的账户" url=""/>
+        <menu id="wdzh" name="我的账户" url="/comingSoon.htm"/>
     </menuset>
 </root-menu>

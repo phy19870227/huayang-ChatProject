@@ -23,23 +23,30 @@ var HyChat = function () {
     }
 
     return {
-        loadContent: function (url) {
+        initApp: function () {
+            $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+        },
+        loadContent: function (url, _a) {
+            var $a = $(_a);
+            var _parentA = $a.parent().parent().parent().find("a:first");
+            var menusetId = $(_parentA).data("menusetId");
+            var menusetName = $(_parentA).data("menusetName");
+            var menuId = $a.data("menuId");
+            var menuName = $a.data("menuName");
             $.ajax({
                 type: "get",
                 url: url,
-                // cache: false,
-                beforeSend: function () {
-
-                },
+                cache: false,
                 success: function (resp) {
+                    $("#menu_name").html(menuName);
+                    $("#menuset_name").html(menusetName);
+                    $("#path_menu_name").html(menuName);
                     $content.html(resp);
                     $.getScript(getScriptUrl(url));
-                },
-                error: function () {
-
-                },
-                complete: function () {
-                    
+                    if (!$a.parent().hasClass("active")) {
+                        $(".treeview-menu > li").removeClass("active");
+                        $a.parent().addClass("active");
+                    }
                 }
             });
         },
@@ -56,5 +63,5 @@ var HyChat = function () {
 }();
 
 $(function () {
-
+    HyChat.initApp();
 });

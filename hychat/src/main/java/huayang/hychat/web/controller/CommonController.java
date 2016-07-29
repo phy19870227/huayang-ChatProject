@@ -31,8 +31,13 @@ public class CommonController extends GeneralController {
     @Autowired
     private Producer captchaProducer;
 
+    @RequestMapping(value = "/comingSoon.htm", method = RequestMethod.GET)
+    public String comingSoon() {
+        return "common/coming-soon";
+    }
+
     @RequestMapping(value = "/check.jpg", method = RequestMethod.GET)
-    protected String kaptcha(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+    public String kaptcha(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
         // Set to expire far in the past.
         response.setDateHeader("Expires", 0);
         // Set standard HTTP/1.1 no-cache headers.

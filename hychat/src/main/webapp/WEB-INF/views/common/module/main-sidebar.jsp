@@ -40,19 +40,23 @@
                 <c:set var="menusets" value="${applicationScope[WebKey.MAIN_SIDEBAR_KEY]}"/>
                 <c:forEach var="menuset" items="${menusets}" varStatus="status">
                     <c:if test="${menuset.type eq applicationScope['menusetTypeEnumSplit'].code}">
-                        <li class="header">${menuset.name}</li>
+                        <li id="${menuset.id}" class="header">${menuset.name}</li>
                     </c:if>
                     <c:if test="${menuset.type eq applicationScope['menusetTypeEnumTree'].code}">
                         <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i>
+                            <a data-menuset-id="${menuset.id}" data-menuset-name="${menuset.name}" href="#">
+                                <i class="fa fa-link"></i>
                                 <span>${menuset.name}</span>
                                 <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
+                                    <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
                                 <c:forEach var="menu" items="${menuset.menus}" varStatus="status">
-                                    <li><a href="javascript:HyChat.loadContent('${ctxPath}${menu.url}');">${menu.name}</a></li>
+                                    <li>
+                                        <a data-menu-id="${menu.id}" data-menu-name="${menu.name}" href="javascript:void(0);"
+                                           onclick="HyChat.loadContent('${ctxPath}${menu.url}', this)">${menu.name}</a>
+                                    </li>
                                 </c:forEach>
                             </ul>
                         </li>

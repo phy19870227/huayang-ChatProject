@@ -71,12 +71,12 @@ desired effect
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Page Header
-                <small>Optional description</small>
+                <span id="menu_name">Page Header</span>
+                <small id="menuset_name">Optional description</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li id="path_menu_name" class="active">Here</li>
             </ol>
         </section>
 
@@ -104,6 +104,8 @@ desired effect
 <script src="${ctxPath}/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="${ctxPath}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="${ctxPath}/assets/plugins/jquery.blockUI.js"></script>
 <!-- AdminLTE App -->
 <script src="${ctxPath}/assets/AdminLTE/js/app.js"></script>
 
