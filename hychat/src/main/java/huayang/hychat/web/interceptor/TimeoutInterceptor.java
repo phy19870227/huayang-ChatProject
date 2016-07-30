@@ -19,7 +19,7 @@ public class TimeoutInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        SessionData sessionData = (SessionData) WebContext.getSessionAttribute(WebKey.CURR_SESSION_DATA);
+        SessionData sessionData = (SessionData) WebContext.getSessionAttribute(WebKey.SESSION_DATA_KEY);
         if (sessionData == null) {
             response.sendRedirect(request.getContextPath() + "/timeout.htm");
             return false;

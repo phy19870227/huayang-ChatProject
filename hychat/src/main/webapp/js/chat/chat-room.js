@@ -14,8 +14,17 @@ var ChatRoom = function () {
 
     return {
         init: function () {
-            console.log(HyChat.getContentHeight());
             resizeChatRoomBox();
+            $("#chat-room-box button").on("click", function () {
+                WebStomp.publish("/ws/chat/room.htm", $("input[name='message']").val(), function (msg) {
+                    console.log("发送消息:" + msg);
+                });
+            });
+            WebStomp.init("/ws/stomp");
+            WebStomp.subscribe("/topic/chat/room", function (msg) {
+                var resp = msg.body ? msg.body : msg;
+                console.log("接收订阅聊天室消息:" + resp)
+            });
         }
     }
 

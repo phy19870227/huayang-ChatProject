@@ -36,7 +36,7 @@ public class LoginController extends GeneralController {
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String login(String resultCode, Model model) {
         DefaultResp resp = WebContext.createResp(DefaultResp.class, resultCode);
-        model.addAttribute(WebKey.RESPONSE_MESSAGE, resp);
+        model.addAttribute(WebKey.RESP_MSG_KEY, resp);
         return "login";
     }
 
@@ -51,7 +51,7 @@ public class LoginController extends GeneralController {
                 sessionData.setHttpSessionId(session.getId());
                 sessionData.setChatUser(user);
                 WebContext.sessionDataMap.put(user.getUserCode(), sessionData);
-                WebContext.setSessionAttribute(WebKey.CURR_SESSION_DATA, sessionData);
+                WebContext.setSessionAttribute(WebKey.SESSION_DATA_KEY, sessionData);
                 return "redirect:/main.htm";
             }
         }
@@ -61,7 +61,7 @@ public class LoginController extends GeneralController {
     @RequestMapping(value = "/login-fail.htm", method = RequestMethod.GET)
     public String loginFail(String resultCode, Model model) {
         DefaultResp resp = WebContext.createResp(DefaultResp.class, false, resultCode);
-        model.addAttribute(WebKey.RESPONSE_MESSAGE, resp);
+        model.addAttribute(WebKey.RESP_MSG_KEY, resp);
         return "login-fail";
     }
 

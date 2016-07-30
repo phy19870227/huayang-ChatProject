@@ -164,6 +164,19 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-websocket</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+        </dependency>
+        <!--websocket stomp spring activemq-->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-net</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
         <!--jackson-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

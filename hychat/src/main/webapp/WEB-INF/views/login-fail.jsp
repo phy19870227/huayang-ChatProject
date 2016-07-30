@@ -67,7 +67,7 @@
                 <div class="callout callout-danger">
                     <h1>登录失败!</h1>
 
-                    <p class="lead">原因:${requestScope[WebKey.RESPONSE_MESSAGE].resultMsg}&nbsp;<a href="${ctxPath}/">返回登录</a></p>
+                    <p class="lead">原因:${requestScope[WebKey.RESP_MSG_KEY].resultMsg}&nbsp;<a href="${ctxPath}/">返回登录</a></p>
                 </div>
             </section>
             <!-- /.content -->
