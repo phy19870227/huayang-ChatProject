@@ -10,13 +10,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+
     <title>HyChat</title>
 
     <link rel="stylesheet" href="${ctxPath}/assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${ctxPath}/assets/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="${ctxPath}/assets/plugins/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="${ctxPath}/assets/plugins/bootstrap-toastr/toastr.min.css">
+    <link rel="stylesheet" href="${ctxPath}/assets/plugins/bootstrap-fileinput/css/fileinput.min.css">
+
     <link rel="stylesheet" href="${ctxPath}/assets/AdminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="${ctxPath}/assets/AdminLTE/css/skins/skin-blue.min.css">
+
+    <link rel="stylesheet" href="${ctxPath}/css/HyChat.css">
 
     <!--[if lt IE 9]>
     <script src="${ctxPath}/assets/plugins/html5shiv.min.js"></script>
@@ -35,17 +47,17 @@
 
         <section class="content-header">
             <h1>
-                <span id="menu_name">Page Header</span>
-                <small id="menuset_name">Optional description</small>
+                <span id="menu_name">欢迎</span>
+                <small id="menuset_name"></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li id="path_menu_name" class="active">Here</li>
+                <li id="path_menu_name" class="active"></li>
             </ol>
         </section>
 
         <section class="content">
-
+            欢迎使用HyChat
         </section>
 
     </div>
@@ -61,7 +73,11 @@
 <script src="${ctxPath}/assets/plugins/sockjs/sockjs-1.1.1.min.js"></script>
 <script src="${ctxPath}/assets/plugins/stomp/stomp.min.js"></script>
 <script src="${ctxPath}/assets/plugins/jquery.blockUI.js"></script>
+<script src="${ctxPath}/assets/plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="${ctxPath}/assets/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+<script src="${ctxPath}/assets/plugins/bootstrap-fileinput/js/locales/zh.js"></script>
 <script src="${ctxPath}/assets/plugins/fastclick/fastclick.js"></script>
+<script src="${ctxPath}/assets/plugins/moment.js"></script>
 
 <script src="${ctxPath}/assets/AdminLTE/js/app.js"></script>
 

@@ -7,13 +7,16 @@
                            http://www.springframework.org/schema/websocket
                            http://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
-    <bean id="websocketContextPropertyPlaceholderConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean id="websocketConfigProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
                 <value>classpath:websocket.properties</value>
             </list>
         </property>
+    </bean>
+
+    <bean id="websocketPropertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="properties" ref="websocketConfigProperties"/>
     </bean>
 
     <websocket:message-broker user-destination-prefix="/user/">

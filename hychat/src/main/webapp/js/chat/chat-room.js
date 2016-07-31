@@ -1,7 +1,7 @@
 /**
  * Created by buhuayang on 16/7/28.
  */
-//@ sourceURL=chat-room.js
+//# sourceURL=chat-room.js
 var ChatRoom = function () {
 
     var $chatRoomBox = $("#chat-room-box");
@@ -23,7 +23,8 @@ var ChatRoom = function () {
             WebStomp.init("/ws/stomp");
             WebStomp.subscribe("/topic/chat/room", function (msg) {
                 var resp = msg.body ? msg.body : msg;
-                console.log("接收订阅聊天室消息:" + resp)
+                console.log("接收订阅聊天室消息:" + resp);
+                
             });
         }
     }

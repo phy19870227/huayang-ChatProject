@@ -33,7 +33,7 @@
                              targetProject="${source.path}" type="XMLMAPPER"/>
 
         <table schema="hychat" tableName="chat_user"></table>
-        <table schema="hychat" tableName="chat_friend"></table>
+        <!--<table schema="hychat" tableName="chat_friend"></table>-->
 
     </context>
 </generatorConfiguration>

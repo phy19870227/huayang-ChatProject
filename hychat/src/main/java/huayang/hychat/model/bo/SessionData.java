@@ -1,5 +1,6 @@
 package huayang.hychat.model.bo;
 
+import huayang.hychat.common.utils.DateUtil;
 import huayang.hychat.model.po.ChatUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,10 @@ public class SessionData implements HttpSessionBindingListener {
     private String httpSessionId;
 
     private ChatUser chatUser;
+
+    public String getRegDatetime() {
+        return DateUtil.changeFormat(chatUser.getRegDatetime(), "yyyyMMddHHmmss", "yyyy-MM-dd");
+    }
 
     @Override
     public void valueBound(HttpSessionBindingEvent event) {

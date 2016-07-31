@@ -43,6 +43,7 @@
     <bean id="wall-filter" class="com.alibaba.druid.wall.WallFilter">
         <property name="dbType" value="mysql"/>
     </bean>
+
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}"/>
         <property name="url" value="${jdbc.url}"/>
@@ -78,13 +79,11 @@
 
     <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
 
-    <!-- mybatis文件配置，扫描所有mapper文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
-    <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="huayang.*.dao.*"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>

@@ -613,6 +613,76 @@ public class ChatUserExample {
             addCriterion("reg_datetime not between", value1, value2, "regDatetime");
             return (Criteria) this;
         }
+
+        public Criteria andHeadImgUrlIsNull() {
+            addCriterion("head_img_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlIsNotNull() {
+            addCriterion("head_img_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlEqualTo(String value) {
+            addCriterion("head_img_url =", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlNotEqualTo(String value) {
+            addCriterion("head_img_url <>", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlGreaterThan(String value) {
+            addCriterion("head_img_url >", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("head_img_url >=", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlLessThan(String value) {
+            addCriterion("head_img_url <", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlLessThanOrEqualTo(String value) {
+            addCriterion("head_img_url <=", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlLike(String value) {
+            addCriterion("head_img_url like", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlNotLike(String value) {
+            addCriterion("head_img_url not like", value, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlIn(List<String> values) {
+            addCriterion("head_img_url in", values, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlNotIn(List<String> values) {
+            addCriterion("head_img_url not in", values, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlBetween(String value1, String value2) {
+            addCriterion("head_img_url between", value1, value2, "headImgUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImgUrlNotBetween(String value1, String value2) {
+            addCriterion("head_img_url not between", value1, value2, "headImgUrl");
+            return (Criteria) this;
+        }
     }
 
     /**

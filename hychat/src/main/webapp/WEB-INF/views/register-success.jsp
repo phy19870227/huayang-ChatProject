@@ -40,7 +40,7 @@
         <nav class="navbar navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="${ctxPath}/" class="navbar-brand"><b>Hy</b>CHAT</a>
+                    <a href="${ctxPath}/login.htm" class="navbar-brand"><b>Hy</b>CHAT</a>
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -67,7 +67,7 @@
                 <div class="callout callout-success">
                     <h1>注册成功!</h1>
 
-                    <p class="lead">您的账号:${user.userCode}.&nbsp;<a href="${ctxPath}/">登录</a></p>
+                    <p class="lead">您的账号:${user.userCode}.&nbsp;<a href="${ctxPath}/login.htm">登录</a></p>
                 </div>
             </section>
             <!-- /.content -->

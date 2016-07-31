@@ -34,7 +34,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="${ctxPath}/"><b><b>Hy</b>CHAT</a>
+        <a href="${ctxPath}/login.htm"><b><b>Hy</b>CHAT</a>
     </div>
 
     <div class="register-box-body">
@@ -85,7 +85,7 @@
                 Google+</a>
         </div>--%>
 
-        <a href="${ctxPath}/" class="text-center">已有账户</a>
+        <a href="${ctxPath}/login.htm" class="text-center">已有账户</a>
     </div>
     <!-- /.form-box -->
 </div>

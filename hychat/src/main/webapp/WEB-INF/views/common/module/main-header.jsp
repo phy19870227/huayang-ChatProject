@@ -7,24 +7,38 @@
 --%>
 <header class="main-header">
 
-    <!-- Logo -->
-    <a href="${ctxPath}/" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
+    <a href="${ctxPath}/login.htm" class="logo">
         <span class="logo-mini"><b>H</b>y</span>
-        <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>Hy</b>CHAT</span>
     </a>
 
-    <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+
+        <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="glyphicon glyphicon-th-list"></span>
         </a>
-        <!-- Navbar Right Menu -->
+
+        <a href="#" class="sidebar-toggle">
+            <span class="glyphicon glyphicon-repeat"></span>
+        </a>
+
         <div class="navbar-custom-menu">
+            <%--<ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-backdrop"><a id="refresh" href="javascript:void(0);" data-url="">刷新</a></li>
+                        &lt;%&ndash;<li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>&ndash;%&gt;
+                    </ul>
+                </li>
+            </ul>--%>
             <ul class="nav navbar-nav">
-                <!-- Messages: style can be found in dropdown.less-->
+
                 <%--<li class="dropdown messages-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -58,9 +72,7 @@
                         <li class="footer"><a href="#">See All Messages</a></li>
                     </ul>
                 </li>--%>
-                <!-- /.messages-menu -->
 
-                <!-- Notifications Menu -->
                 <%--<li class="dropdown notifications-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -83,7 +95,7 @@
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
                 </li>--%>
-                <!-- Tasks Menu -->
+
                 <%--<li class="dropdown tasks-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -119,26 +131,32 @@
                         </li>
                     </ul>
                 </li>--%>
-                <!-- User Account Menu -->
+
+                <c:set var="sessionData" value="${sessionScope[WebKey.SESSION_DATA_KEY]}" scope="page"></c:set>
+                <c:set var="chatUser" value="${sessionData.chatUser}" scope="page"></c:set>
                 <li class="dropdown user user-menu">
-                    <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <!-- The user image in the navbar-->
-                        <img src="${ctxPath}/assets/AdminLTE/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">${sessionScope[WebKey.SESSION_DATA_KEY].chatUser.userName}</span>
+                        <c:if test="${not empty chatUser.headImgUrl}">
+                            <img class="user-image" src="${ctxPath}/assets/AdminLTE/img/user4-128x128.jpg"/>
+                        </c:if>
+                        <c:if test="${empty chatUser.headImgUrl}">
+                            <img class="user-image" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
+                        </c:if>
+                        <span class="hidden-xs">${chatUser.userName}</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="${ctxPath}/assets/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                            <c:if test="${not empty chatUser.headImgUrl}">
+                                <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/user4-128x128.jpg"/>
+                            </c:if>
+                            <c:if test="${empty chatUser.headImgUrl}">
+                                <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
+                            </c:if>
                             <p>
                                 Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <small>注册时间:${sessionData.regDatetime}</small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
@@ -151,20 +169,18 @@
                                     <a href="#">Friends</a>
                                 </div>
                             </div>
-                            <!-- /.row -->
                         </li>
-                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="javascript:void(0);" class="btn btn-default btn-flat" onclick="HyChat.selectMenu('wdzh')">个人资料</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="#" class="btn btn-default btn-flat">退出</a>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <!-- Control Sidebar Toggle Button -->
+
                 <%--<li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>--%>

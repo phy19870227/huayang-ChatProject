@@ -31,9 +31,9 @@ public class CommonController extends GeneralController {
     @Autowired
     private Producer captchaProducer;
 
-    @RequestMapping(value = "/comingSoon.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/coming-soon.htm", method = RequestMethod.GET)
     public String comingSoon() {
-        return "common/coming-soon";
+        return "coming-soon";
     }
 
     @RequestMapping(value = "/check.jpg", method = RequestMethod.GET)

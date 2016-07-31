@@ -40,7 +40,7 @@
         <nav class="navbar navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="${ctxPath}/" class="navbar-brand"><b>Hy</b>CHAT</a>
+                    <a href="${ctxPath}/login.htm" class="navbar-brand"><b>Hy</b>CHAT</a>
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -67,7 +67,7 @@
                 <div class="callout callout-danger">
                     <h1>登录失败!</h1>
 
-                    <p class="lead">原因:${requestScope[WebKey.RESP_MSG_KEY].resultMsg}&nbsp;<a href="${ctxPath}/">返回登录</a></p>
+                    <p class="lead">原因:${requestScope[WebKey.RESP_MSG_KEY].resultMsg}&nbsp;<a href="${ctxPath}/login.htm">返回登录</a></p>
                 </div>
             </section>
             <!-- /.content -->

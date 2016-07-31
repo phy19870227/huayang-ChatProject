@@ -7,34 +7,24 @@
 --%>
 <aside class="main-sidebar">
 
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
 
-        <!-- Sidebar user panel (optional) -->
+        <c:set var="chatUser" value="${sessionScope[WebKey.SESSION_DATA_KEY].chatUser}" scope="page"></c:set>
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="${ctxPath}/assets/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <c:if test="${not empty chatUser.headImgUrl}">
+                    <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/user4-128x128.jpg"/>
+                </c:if>
+                <c:if test="${empty chatUser.headImgUrl}">
+                    <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
+                </c:if>
             </div>
             <div class="pull-left info">
                 <p>${sessionScope[WebKey.SESSION_DATA_KEY].chatUser.userName}</p>
-                <!-- Status -->
-                <%--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>--%>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
 
-        <!-- search form (Optional) -->
-        <%--<form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>--%>
-        <!-- /.search form -->
-
-        <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <c:if test="${not empty applicationScope[WebKey.MAIN_SIDEBAR_KEY]}">
                 <c:set var="menusets" value="${applicationScope[WebKey.MAIN_SIDEBAR_KEY]}"/>
@@ -54,8 +44,11 @@
                             <ul class="treeview-menu">
                                 <c:forEach var="menu" items="${menuset.menus}" varStatus="status">
                                     <li>
-                                        <a data-menu-id="${menu.id}" data-menu-name="${menu.name}" href="javascript:void(0);"
-                                           onclick="HyChat.loadContent('${ctxPath}${menu.url}', this)">${menu.name}</a>
+                                        <a href="javascript:void(0);"
+                                           onclick="HyChat.clickMenu(this)"
+                                           data-url="${ctxPath}${menu.url}"
+                                           data-menu-id="${menu.id}" data-menu-name="${menu.name}"
+                                           data-menuset-id="${menuset.id}">${menu.name}</a>
                                     </li>
                                 </c:forEach>
                             </ul>
@@ -64,7 +57,5 @@
                 </c:forEach>
             </c:if>
         </ul>
-        <!-- /.sidebar-menu -->
     </section>
-    <!-- /.sidebar -->
 </aside>

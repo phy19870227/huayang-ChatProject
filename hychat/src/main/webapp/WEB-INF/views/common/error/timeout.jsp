@@ -11,6 +11,6 @@
 </head>
 <body>
 412
-登录超时!&nbsp;<a href="${ctxPath}/">重新登录</a>
+登录超时!&nbsp;<a href="${ctxPath}/login.htm">重新登录</a>
 </body>
 </html>

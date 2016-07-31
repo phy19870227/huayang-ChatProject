@@ -9,7 +9,7 @@ import huayang.hychat.model.dto.LoginReq;
 import huayang.hychat.model.po.ChatUser;
 import huayang.hychat.web.WebContext;
 import huayang.hychat.web.WebKey;
-import org.apache.commons.codec.binary.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,10 @@ public class LoginController extends GeneralController {
 
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String login(String resultCode, Model model) {
-        DefaultResp resp = WebContext.createResp(DefaultResp.class, resultCode);
-        model.addAttribute(WebKey.RESP_MSG_KEY, resp);
+        if (StringUtils.isNotBlank(resultCode)) {
+            DefaultResp resp = WebContext.createResp(DefaultResp.class, resultCode);
+            model.addAttribute(WebKey.RESP_MSG_KEY, resp);
+        }
         return "login";
     }
 
@@ -63,6 +65,13 @@ public class LoginController extends GeneralController {
         DefaultResp resp = WebContext.createResp(DefaultResp.class, false, resultCode);
         model.addAttribute(WebKey.RESP_MSG_KEY, resp);
         return "login-fail";
+    }
+
+    @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
+    public String logout() {
+        HttpSession session = WebContext.getSession();
+        session.invalidate();
+        return "redirect:/login.htm";
     }
 
 }
