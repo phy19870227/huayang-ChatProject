@@ -13,4 +13,6 @@ public class AppContext {
     public static final String MSG_TYPE_PREFIX_SUCCESS = "success.";
     public static final String MSG_TYPE_PREFIX_FAIL = "fail.";
 
+    public static final String HEAD_IMG_PATH = "/headimg/";
+
 }

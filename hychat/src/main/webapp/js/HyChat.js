@@ -10,19 +10,30 @@ var HyChat = function () {
     var initContentWrapperHeight = 0;
     var initContentHeight = 0;
 
-    var getScriptUrl = function (url) {
-        url = url.replace(Util.getCtxPath(), Util.getCtxPath() + "/js");
+    var buildScriptUrl = function (url, type) {
+        url = url.replace(Util.getCtxPath(), Util.getCtxPath() + "/" + type);
         var splitUrls = url.split("\\/");
         var scriptUrl = "";
         $.each(splitUrls, function (index, obj) {
             if (index == (splitUrls.length - 1)) {
-                obj = obj.replace(".htm", ".js");
+                obj = obj.replace(".htm", "." + type);
                 scriptUrl += obj;
             } else {
                 scriptUrl += (obj + "/");
             }
         });
         return scriptUrl;
+    };
+
+    var getJs = function (url) {
+        $.getScript(buildScriptUrl(url, "js"));
+    };
+
+    var getCss = function (url) {
+        $("<link>").attr({
+            rel: "stylesheet",
+            href: buildScriptUrl(url, "css")
+        }).appendTo("head");
     };
 
     var loadContent = function (menu, callback) {
@@ -35,10 +46,21 @@ var HyChat = function () {
                 $("#menuset_name").html(menu.menusetName);
                 $("#path_menu_name").html(menu.menuName);
                 $content.html(resp);
-                $.getScript(getScriptUrl(menu.url));
+                getJs(menu.url);
+                getCss(menu.url);
+                $("#refresh_content").data("currMenu", menu);
                 if (callback && typeof callback == "function") {
                     callback();
                 }
+            }
+        });
+    };
+    
+    var bindEvents = function () {
+        $("#refresh_content").on("click", function () {
+            var menu = $(this).data("currMenu");
+            if (menu) {
+                loadContent(menu);
             }
         });
     };
@@ -48,13 +70,13 @@ var HyChat = function () {
             $.ajaxSetup({
                 cache: false,
                 statusCode: {
-                    404: function() {
+                    404: function () {
                         toastr.error("没有此功能", "系统错误");
                     },
-                    500: function() {
+                    500: function () {
                         toastr.error("处理失败", "系统错误");
                     },
-                    412: function() {
+                    412: function () {
                         toastr.error("请重新登录系统", "会话过期");
                         window.setTimeout(function () {
                             window.location.href = Util.getCtxPath() + "/timeout.htm";
@@ -62,9 +84,26 @@ var HyChat = function () {
                     }
                 }
             });
+
+            $(document).ajaxStart(function () {
+                $.blockUI({
+                    message: "<img src='" + Util.getCtxPath() + "/img/loading.gif'/>",
+                    css: {
+                        border: "0",
+                        padding: "0",
+                        backgroundColor: "none"
+                    }
+                });
+            }).ajaxStop(function () {
+                window.setTimeout(function () {
+                    $.unblockUI();
+                }, 1000);
+            });
+
             initContentWrapperHeight = this.getContentWrapperHeight();
             initContentHeight = this.getContentHeight();
-            $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+
+            bindEvents();
         },
         clickMenu: function (_a) {
             var $a = $(_a);
@@ -100,7 +139,7 @@ var HyChat = function () {
             }
         },
         refreshContent: function () {
-            $(".main-header #refresh");
+            $("#refresh_content").trigger("click");
         },
         getInitContentWrapperHeight: function () {
             return initContentWrapperHeight;

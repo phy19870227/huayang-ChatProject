@@ -1,4 +1,4 @@
-package huayang.hychat.common.utils;
+package huayang.hychat.utils;
 
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;

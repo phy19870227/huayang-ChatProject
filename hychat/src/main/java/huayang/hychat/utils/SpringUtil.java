@@ -1,5 +1,6 @@
-package huayang.hychat.common.utils;
+package huayang.hychat.utils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -43,7 +44,11 @@ public class SpringUtil {
     }
 
     public static String getMessage(String code) {
-        return getApplicationContext().getMessage(code, null, Locale.CHINA);
+        if (StringUtils.isNotBlank(code)) {
+            return getApplicationContext().getMessage(code, null, Locale.CHINA);
+        } else {
+            return "";
+        }
     }
 
     public static Resource getResource(String name) {

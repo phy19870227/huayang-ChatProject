@@ -2,7 +2,7 @@ package huayang.hychat.web.controller;
 
 import huayang.hychat.biz.ILoginBiz;
 import huayang.hychat.common.GeneralController;
-import huayang.hychat.common.utils.PasswordUtil;
+import huayang.hychat.utils.PasswordUtil;
 import huayang.hychat.model.bo.SessionData;
 import huayang.hychat.model.dto.DefaultResp;
 import huayang.hychat.model.dto.LoginReq;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**

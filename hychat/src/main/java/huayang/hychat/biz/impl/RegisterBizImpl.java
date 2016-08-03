@@ -1,13 +1,11 @@
 package huayang.hychat.biz.impl;
 
 import huayang.hychat.biz.IRegisterBiz;
-import huayang.hychat.common.utils.DateUtil;
-import huayang.hychat.common.utils.PasswordUtil;
-import huayang.hychat.common.utils.PkUtil;
+import huayang.hychat.utils.DateUtil;
+import huayang.hychat.utils.PasswordUtil;
+import huayang.hychat.utils.PkUtil;
 import huayang.hychat.dao.base.ChatUserMapper;
 import huayang.hychat.model.po.ChatUser;
-import huayang.hychat.model.po.ChatUserExample;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

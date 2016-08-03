@@ -1,4 +1,4 @@
-package huayang.hychat.common.utils;
+package huayang.hychat.utils;
 
 import org.dom4j.*;
 import org.dom4j.io.OutputFormat;

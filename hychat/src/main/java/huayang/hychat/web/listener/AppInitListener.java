@@ -1,10 +1,10 @@
 package huayang.hychat.web.listener;
 
 import huayang.hychat.common.GeneralEnum;
-import huayang.hychat.common.utils.ClassUtil;
-import huayang.hychat.common.utils.Dom4jUtil;
-import huayang.hychat.common.utils.EnumUtil;
-import huayang.hychat.common.utils.SpringUtil;
+import huayang.hychat.utils.ClassUtil;
+import huayang.hychat.utils.Dom4jUtil;
+import huayang.hychat.utils.EnumUtil;
+import huayang.hychat.utils.SpringUtil;
 import huayang.hychat.model.bo.Menu;
 import huayang.hychat.model.bo.Menuset;
 import huayang.hychat.web.WebKey;
@@ -20,7 +20,6 @@ import org.springframework.core.io.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

@@ -2,12 +2,8 @@ package huayang.hychat.web.controller;
 
 import huayang.hychat.biz.IRegisterBiz;
 import huayang.hychat.common.GeneralController;
-import huayang.hychat.common.utils.SpringUtil;
-import huayang.hychat.model.dto.DefaultResp;
 import huayang.hychat.model.dto.RegisterReq;
 import huayang.hychat.model.po.ChatUser;
-import huayang.hychat.web.WebContext;
-import huayang.hychat.web.WebKey;
 import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

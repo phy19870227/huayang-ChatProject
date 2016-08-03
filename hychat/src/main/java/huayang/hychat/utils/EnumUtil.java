@@ -1,4 +1,4 @@
-package huayang.hychat.common.utils;
+package huayang.hychat.utils;
 
 import huayang.hychat.common.GeneralEnum;
 import org.apache.commons.lang3.StringUtils;

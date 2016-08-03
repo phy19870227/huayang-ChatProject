@@ -16,7 +16,11 @@
     </bean>
 
     <bean id="websocketPropertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="properties" ref="websocketConfigProperties"/>
+        <property name="propertiesArray">
+            <list>
+                <ref bean="websocketConfigProperties"/>
+            </list>
+        </property>
     </bean>
 
     <websocket:message-broker user-destination-prefix="/user/">

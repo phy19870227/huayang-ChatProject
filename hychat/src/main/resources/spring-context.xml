@@ -7,17 +7,28 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="rootConfigProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    <bean id="jdbcProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
                 <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
                 <value>classpath:HyChat.properties</value>
             </list>
         </property>
     </bean>
 
     <bean id="rootPropertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="properties" ref="rootConfigProperties"/>
+        <property name="propertiesArray">
+            <list>
+                <ref bean="jdbcProperties"/>
+            </list>
+        </property>
     </bean>
 
     <import resource="spring-mybatis.xml"/>

@@ -1,4 +1,4 @@
-package huayang.hychat.common.utils;
+package huayang.hychat.utils;
 
 import java.util.UUID;
 

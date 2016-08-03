@@ -1,7 +1,7 @@
 package huayang.hychat.web;
 
 import huayang.hychat.common.AppContext;
-import huayang.hychat.common.utils.SpringUtil;
+import huayang.hychat.utils.SpringUtil;
 import huayang.hychat.model.bo.SessionData;
 import huayang.hychat.model.dto.DefaultResp;
 import org.apache.commons.lang3.StringUtils;

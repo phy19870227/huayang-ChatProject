@@ -1,6 +1,6 @@
 package huayang.hychat.model.bo;
 
-import huayang.hychat.common.utils.DateUtil;
+import huayang.hychat.utils.DateUtil;
 import huayang.hychat.model.po.ChatUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

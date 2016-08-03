@@ -73,6 +73,7 @@
 <script src="${ctxPath}/assets/plugins/sockjs/sockjs-1.1.1.min.js"></script>
 <script src="${ctxPath}/assets/plugins/stomp/stomp.min.js"></script>
 <script src="${ctxPath}/assets/plugins/jquery.blockUI.js"></script>
+<script src="${ctxPath}/assets/plugins/jquery.form.js"></script>
 <script src="${ctxPath}/assets/plugins/bootstrap-toastr/toastr.min.js"></script>
 <script src="${ctxPath}/assets/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
 <script src="${ctxPath}/assets/plugins/bootstrap-fileinput/js/locales/zh.js"></script>

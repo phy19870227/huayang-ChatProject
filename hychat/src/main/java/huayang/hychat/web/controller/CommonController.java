@@ -2,6 +2,7 @@ package huayang.hychat.web.controller;
 
 import com.google.code.kaptcha.Producer;
 import huayang.hychat.common.GeneralController;
+import huayang.hychat.utils.PropUtil;
 import huayang.hychat.web.WebContext;
 import huayang.hychat.web.WebKey;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -12,13 +13,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * Created by buhuayang on 16/7/21.

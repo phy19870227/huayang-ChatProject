@@ -18,25 +18,12 @@
             <span class="glyphicon glyphicon-th-list"></span>
         </a>
 
-        <a href="#" class="sidebar-toggle">
+        <a id="refresh_content" href="javascript:void(0);" class="sidebar-toggle">
             <span class="glyphicon glyphicon-repeat"></span>
         </a>
 
         <div class="navbar-custom-menu">
-            <%--<ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-backdrop"><a id="refresh" href="javascript:void(0);" data-url="">刷新</a></li>
-                        &lt;%&ndash;<li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>&ndash;%&gt;
-                    </ul>
-                </li>
-            </ul>--%>
+
             <ul class="nav navbar-nav">
 
                 <%--<li class="dropdown messages-menu">

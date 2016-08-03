@@ -12,14 +12,12 @@
         <!-- Profile Image -->
         <div class="box box-primary">
             <div class="box-body box-profile">
-                <a id="edit_head_img" href="javascript:void(0);">
-                    <c:if test="${not empty chatUser.headImgUrl}">
-                        <img class="profile-user-img img-responsive img-circle" src="${ctxPath}/assets/AdminLTE/img/user4-128x128.jpg"/>
-                    </c:if>
-                    <c:if test="${empty chatUser.headImgUrl}">
-                        <img class="profile-user-img img-responsive img-circle" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
-                    </c:if>
-                </a>
+                <c:if test="${not empty chatUser.headImgUrl}">
+                    <img class="profile-user-img img-responsive img-circle" src="${chatUser.headImgUrl}"/>
+                </c:if>
+                <c:if test="${empty chatUser.headImgUrl}">
+                    <img class="profile-user-img img-responsive img-circle" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
+                </c:if>
 
                 <h3 class="profile-username text-center">${chatUser.userName}</h3>
 
@@ -102,18 +100,23 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-danger">保存</button>
+                                <button id="profile_save_btn" type="button" class="btn btn-danger">保存</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="tab-pane" id="head_img">
-                    <form id="head_img_form" action="#" method="post"
+                    <form id="head_img_form" action="${ctxPath}/user/profile.htm" method="post"
                           enctype="multipart/form-data" class="form-horizontal">
                         <div class="form-group">
                             <label for="headImg" class="col-sm-2 control-label">头像</label>
                             <div class="col-sm-10">
                                 <input type="file" id="headImg" name="headImg" class="file" accept="image/*"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button id="head_img_save_btn" type="button" class="btn btn-danger">保存</button>
                             </div>
                         </div>
                     </form>
