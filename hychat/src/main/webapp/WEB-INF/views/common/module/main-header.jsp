@@ -124,20 +124,20 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <c:if test="${not empty chatUser.headImgUrl}">
-                            <img class="user-image" src="${ctxPath}/assets/AdminLTE/img/user4-128x128.jpg"/>
+                            <img class="user-image hychat-main-header-head-img" src="${chatUser.headImgUrl}"/>
                         </c:if>
                         <c:if test="${empty chatUser.headImgUrl}">
-                            <img class="user-image" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
+                            <img class="user-image hychat-main-header-head-img" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
                         </c:if>
-                        <span class="hidden-xs">${chatUser.userName}</span>
+                        <span id="main_header_user_name" class="hidden-xs">${chatUser.userName}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
                             <c:if test="${not empty chatUser.headImgUrl}">
-                                <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/user4-128x128.jpg"/>
+                                <img class="img-circle hychat-main-header-head-img" src="${chatUser.headImgUrl}"/>
                             </c:if>
                             <c:if test="${empty chatUser.headImgUrl}">
-                                <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
+                                <img class="img-circle hychat-main-header-head-img" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
                             </c:if>
                             <p>
                                 Alexander Pierce - Web Developer

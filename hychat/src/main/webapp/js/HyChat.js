@@ -10,6 +10,11 @@ var HyChat = function () {
     var initContentWrapperHeight = 0;
     var initContentHeight = 0;
 
+    var $mainHeaderHeadImg = $(".hychat-main-header-head-img");
+    var $mainSidebarHeadImg = $(".hychat-main-sidebar-head-img");
+    var $mainHeaderUserName = $("#main_header_user_name");
+    var $mainSidebarUserName = $("#main_sidebar_user_name");
+
     var buildScriptUrl = function (url, type) {
         url = url.replace(Util.getCtxPath(), Util.getCtxPath() + "/" + type);
         var splitUrls = url.split("\\/");
@@ -23,6 +28,12 @@ var HyChat = function () {
             }
         });
         return scriptUrl;
+    };
+
+    var loadTitle = function (menu) {
+        $("#menu_name").html(menu.menuName);
+        $("#menuset_name").html(menu.menusetName);
+        $("#path_menu_name").html(menu.menuName);
     };
 
     var getJs = function (url) {
@@ -42,9 +53,7 @@ var HyChat = function () {
             url: menu.url + "?_=" + new Date(),
             cache: false,
             success: function (resp) {
-                $("#menu_name").html(menu.menuName);
-                $("#menuset_name").html(menu.menusetName);
-                $("#path_menu_name").html(menu.menuName);
+                loadTitle(menu);
                 $content.html(resp);
                 getJs(menu.url);
                 getCss(menu.url);
@@ -84,6 +93,21 @@ var HyChat = function () {
                     }
                 }
             });
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "positionClass": "toast-bottom-right",
+                "onclick": null,
+                "showDuration": "1000",
+                "hideDuration": "2000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
 
             $(document).ajaxStart(function () {
                 $.blockUI({
@@ -140,6 +164,14 @@ var HyChat = function () {
         },
         refreshContent: function () {
             $("#refresh_content").trigger("click");
+        },
+        refreshHeader: function (chatUser) {
+            $mainHeaderHeadImg.attr("src", chatUser.headImgUrl);
+            $mainHeaderUserName.html(chatUser.userName);
+        },
+        refreshSidebar: function (chatUser) {
+            $mainSidebarHeadImg.attr("src", chatUser.headImgUrl);
+            $mainSidebarUserName.html(chatUser.userName);
         },
         getInitContentWrapperHeight: function () {
             return initContentWrapperHeight;

@@ -91,7 +91,7 @@
             </ul>
             <div class="tab-content">
                 <div class="active tab-pane" id="settings">
-                    <form id="profile_form" action="#" method="post" class="form-horizontal">
+                    <form id="profile_form" action="${ctxPath}/user/profile.htm" method="post" class="form-horizontal">
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">昵称</label>
                             <div class="col-sm-10">
@@ -100,7 +100,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button id="profile_save_btn" type="button" class="btn btn-danger">保存</button>
+                                <button id="profile_save_btn" type="button" class="btn btn-primary">保存</button>
                             </div>
                         </div>
                     </form>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button id="head_img_save_btn" type="button" class="btn btn-danger">保存</button>
+                                <button id="head_img_save_btn" type="button" class="btn btn-primary">保存</button>
                             </div>
                         </div>
                     </form>

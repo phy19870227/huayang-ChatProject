@@ -4,12 +4,12 @@ import huayang.hychat.common.AppContext;
 import huayang.hychat.dao.base.ChatUserMapper;
 import huayang.hychat.model.bo.SessionData;
 import huayang.hychat.model.dto.DefaultResp;
-import huayang.hychat.model.dto.SaveProfileReq;
+import huayang.hychat.model.dto.req.SaveProfileReq;
+import huayang.hychat.model.dto.resp.SaveProfileResp;
 import huayang.hychat.model.po.ChatUser;
 import huayang.hychat.utils.DateUtil;
 import huayang.hychat.web.WebContext;
 import huayang.hychat.web.WebKey;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.File;
-import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -47,10 +46,15 @@ public class ProfileController {
 
     @RequestMapping(value = "/profile.htm", method = RequestMethod.POST)
     @ResponseBody
-    public DefaultResp profile(SaveProfileReq req, Model model) {
+    public SaveProfileResp profile(SaveProfileReq req, Model model) {
         try {
             SessionData sessionData = (SessionData) WebContext.getSessionAttribute(WebKey.SESSION_DATA_KEY);
             ChatUser chatUser = sessionData.getChatUser();
+
+            if (StringUtils.isNotBlank(req.getUserName())) {
+                chatUser.setUserName(req.getUserName());
+            }
+
             if (req.getHeadImg() != null) {
                 MultipartFile headImgFile = req.getHeadImg();
                 String physicsPath = configProperties.getProperty("file.physics.path", "");
@@ -69,16 +73,17 @@ public class ProfileController {
 
                     chatUserMapper.updateByPrimaryKeySelective(chatUser);
                 } else {
-                    DefaultResp resp = WebContext.createResp(DefaultResp.class, "fail.save.profile.headimg");
+                    SaveProfileResp resp = WebContext.createResp(SaveProfileResp.class, "fail.save.profile.headimg");
                     logger.error(resp.getResultMsg());
                     return resp;
                 }
             }
 
-            DefaultResp resp = WebContext.createResp(DefaultResp.class, "");
+            SaveProfileResp resp = WebContext.createResp(SaveProfileResp.class, "");
+            resp.setChatUser(chatUser);
             return resp;
         } catch (Exception e) {
-            DefaultResp resp = WebContext.createResp(DefaultResp.class, "fail.save.profile.headimg");
+            SaveProfileResp resp = WebContext.createResp(SaveProfileResp.class, "fail.save.profile.headimg");
             logger.error(resp.getResultMsg(), e);
             return resp;
         }

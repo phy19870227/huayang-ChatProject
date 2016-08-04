@@ -1,4 +1,4 @@
-package huayang.hychat.model.dto;
+package huayang.hychat.model.dto.req;
 
 /**
  * Created by buhuayang on 16/7/26.

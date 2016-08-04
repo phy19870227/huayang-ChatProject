@@ -1,4 +1,4 @@
-package huayang.hychat.model.dto;
+package huayang.hychat.model.dto.req;
 
 import org.springframework.web.multipart.MultipartFile;
 

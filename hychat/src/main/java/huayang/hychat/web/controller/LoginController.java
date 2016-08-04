@@ -5,7 +5,7 @@ import huayang.hychat.common.GeneralController;
 import huayang.hychat.utils.PasswordUtil;
 import huayang.hychat.model.bo.SessionData;
 import huayang.hychat.model.dto.DefaultResp;
-import huayang.hychat.model.dto.LoginReq;
+import huayang.hychat.model.dto.req.LoginReq;
 import huayang.hychat.model.po.ChatUser;
 import huayang.hychat.web.WebContext;
 import huayang.hychat.web.WebKey;

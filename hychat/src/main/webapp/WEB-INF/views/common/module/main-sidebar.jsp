@@ -13,14 +13,14 @@
         <div class="user-panel">
             <div class="pull-left image">
                 <c:if test="${not empty chatUser.headImgUrl}">
-                    <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/user4-128x128.jpg"/>
+                    <img class="img-circle hychat-main-sidebar-head-img" src="${chatUser.headImgUrl}"/>
                 </c:if>
                 <c:if test="${empty chatUser.headImgUrl}">
-                    <img class="img-circle" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
+                    <img class="img-circle hychat-main-sidebar-head-img" src="${ctxPath}/assets/AdminLTE/img/avatar5.png"/>
                 </c:if>
             </div>
             <div class="pull-left info">
-                <p>${sessionScope[WebKey.SESSION_DATA_KEY].chatUser.userName}</p>
+                <p id="main_sidebar_user_name">${sessionScope[WebKey.SESSION_DATA_KEY].chatUser.userName}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
