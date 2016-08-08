@@ -109,20 +109,20 @@ var HyChat = function () {
                 "hideMethod": "fadeOut"
             };
 
-            $(document).ajaxStart(function () {
-                $.blockUI({
-                    message: "<img src='" + Util.getCtxPath() + "/img/loading.gif'/>",
-                    css: {
-                        border: "0",
-                        padding: "0",
-                        backgroundColor: "none"
-                    }
-                });
-            }).ajaxStop(function () {
-                window.setTimeout(function () {
-                    $.unblockUI();
-                }, 1000);
-            });
+            // $(document).ajaxStart(function () {
+            //     $.blockUI({
+            //         message: "<img src='" + Util.getCtxPath() + "/img/loading.gif'/>",
+            //         css: {
+            //             border: "0",
+            //             padding: "0",
+            //             backgroundColor: "none"
+            //         }
+            //     });
+            // }).ajaxStop(function () {
+            //     window.setTimeout(function () {
+            //         $.unblockUI();
+            //     }, 1000);
+            // });
 
             initContentWrapperHeight = this.getContentWrapperHeight();
             initContentHeight = this.getContentHeight();
@@ -172,6 +172,19 @@ var HyChat = function () {
         refreshSidebar: function (chatUser) {
             $mainSidebarHeadImg.attr("src", chatUser.headImgUrl);
             $mainSidebarUserName.html(chatUser.userName);
+        },
+        blockUI: function () {
+            $.blockUI({
+                message: "<img src='" + Util.getCtxPath() + "/img/loading.gif'/>",
+                css: {
+                    border: "0",
+                    padding: "0",
+                    backgroundColor: "none"
+                }
+            });
+        },
+        unblockUI: function () {
+            $.unblockUI();
         },
         getInitContentWrapperHeight: function () {
             return initContentWrapperHeight;

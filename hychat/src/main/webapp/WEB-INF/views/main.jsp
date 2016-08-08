@@ -39,9 +39,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    <jsp:include page="common/module/main-header.jsp"></jsp:include>
+    <jsp:include page="module/main-header.jsp"></jsp:include>
 
-    <jsp:include page="common/module/main-sidebar.jsp"></jsp:include>
+    <jsp:include page="module/main-sidebar.jsp"></jsp:include>
 
     <div class="content-wrapper">
 
@@ -62,9 +62,9 @@
 
     </div>
 
-    <jsp:include page="common/module/main-footer.jsp"></jsp:include>
+    <jsp:include page="module/main-footer.jsp"></jsp:include>
 
-    <jsp:include page="common/module/control-sidebar.jsp"></jsp:include>
+    <jsp:include page="module/control-sidebar.jsp"></jsp:include>
 </div>
 
 <script src="${ctxPath}/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
